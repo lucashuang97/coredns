@@ -11,15 +11,18 @@ The CoreDNS team has released
 [CoreDNS-1.7.0](https://github.com/coredns/coredns/releases/tag/v1.7.0).
 
 This is a **backwards incompatible release**. Major changes include:
-* Better metrics names (PR #3776)
+* Better [metrics names](https://github.com/coredns/coredns/pull/3776).
 * New `transfer` plugin that removes the need for plugins to perform their own zone transfers.
+* The *federation* plugin (allows for v1 Kubernetes federation) has been removed. We've also removed
+  some supporting code from the *kubernetes* plugin, so it will not build as an external plugin
+  (with this version of CoreDNS).
 
-As this was already backwards incompatible release, we took the liberty to stuff is much of it in
+As this was already backwards incompatible release, we took the liberty to stuff as much of it in
 one release as possible to minimize the disruption going forward.
 
-### Metric Name Changes
+### Metric Changes
 
-It's mostly dropping `count` from `_total` metrics.
+It's mostly dropping `count` from `_total` metrics names:
 
 * `coredns_request_block_count_total` -\> `coredns_dns_blocked_requests_total`
 * `coredns_request_allow_count_total` -\> `coredns_dns_allowed_requests_total`
@@ -45,11 +48,8 @@ It's mostly dropping `count` from `_total` metrics.
 
 * `coredns_reload_failed_count_total` -\> `coredns_reload_failed_total`
 
-### Metrics Dropped
-
-...some...
-
-
+And note that
+`coredns_dns_request_type_count_total` is now part of `coredns_dns_requests_total` .
 
 ## Brought to You By
 ## Noteworthy Changes
