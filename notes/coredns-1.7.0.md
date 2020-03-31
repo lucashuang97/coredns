@@ -38,7 +38,7 @@ It's mostly dropping `count` from `_total` metrics.
 * `coredns_grpc_request_count_total` -\> `coredns_grpc_requests_total`
 * `coredns_grpc_response_rcode_count_total` -\> `coredns_grpc_responses_total`
 
-* `coredns_panic_count_total` -\> `coredns_panics_total{}`
+* `coredns_panic_count_total` -\> `coredns_panics_total`
 * `coredns_dns_request_count_total` -\> `coredns_dns_requests_total`
 * `coredns_dns_request_do_count_total` -\> `coredns_dns_do_requests_total`
 * `coredns_dns_response_rcode_count_total` -\> `coredns_dns_responses_total`
