@@ -20,6 +20,9 @@ This is a **backwards incompatible release**. Major changes include:
 As this was already backwards incompatible release, we took the liberty to stuff as much of it in
 one release as possible to minimize the disruption going forward.
 
+A new plugin, [*dns64*](https://coredns.io/plugins/dns64) as promoted from external to a plugin that
+is included by default. This plugin "enables DNS64 IPv6 transition mechanism."
+
 ### Metric Changes
 
 It's mostly dropping `count` from `_total` metrics names:
