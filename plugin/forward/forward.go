@@ -33,6 +33,7 @@ type Forward struct {
 
 	tlsConfig     *tls.Config
 	tlsServerName string
+	tlsSkipVerify bool
 	maxfails      uint32
 	expire        time.Duration
 
