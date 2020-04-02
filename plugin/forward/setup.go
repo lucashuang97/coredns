@@ -115,6 +115,9 @@ func parseStanza(c *caddy.Controller) (*Forward, error) {
 	if f.tlsServerName != "" {
 		f.tlsConfig.ServerName = f.tlsServerName
 	}
+	if f.tlsSkipVerify {
+		f.tlsConfig.InsecureSkipVerify = true
+	}
 	for i := range f.proxies {
 		// Only set this for proxies that need it.
 		if transports[i] == transport.TLS {
@@ -198,6 +201,8 @@ func parseBlock(c *caddy.Controller, f *Forward) error {
 			return c.ArgErr()
 		}
 		f.tlsServerName = c.Val()
+	case "tls_skip_verify" :
+		f.tlsSkipVerify = true
 	case "expire":
 		if !c.NextArg() {
 			return c.ArgErr()
